@@ -11,14 +11,17 @@
 <div style=" height:40%; width: 40%; float:right;">
 <center>
 <h1><span style="color:#5C5C5C;">Raspberry pi</span><span style="color:#139442"> Robot</span></h1>
-<button href="#" id="up" style="font-size:46px;text-decoration:none;">  	&#9650;<br>Вперёд</button><br><br></center>
+<a href="#" id="up" style="font-size:30px;text-decoration:none;">  	&#9650;<br>Вперёд</a><br><br></center>
 <p></p> <br></br>
-<button href="#" id="left" style="font-size:46px;text-decoration:none;float:left;"> &#9668;Налево</button>
-<button href="#" id="right" style="font-size:46px; text-decoration:none;float:right;"> Направо 	&#9658;</button><br></br>
+<button href="#" id="left" style="font-size:30px;text-decoration:none;float:left;"> &#9668;Налево</button>
+<a href="#" id="right" style="font-size:30px; text-decoration:none;float:right;"> Направо 	&#9658;</a><br></br>
 <p></p> <br></br>
-<center><button href="#" id="down" style="font-size:46px;text-decoration:none;"> Назад <br> &#9660 </br></button></center>
+<center><a href="#" id="down" style="font-size:30px;text-decoration:none;"> Backward<br> &#9660 </br></a></center>
+<p></p> <br></br>
+<center><button href="#" id="led_on" style="color: #FF4500;font-size:50px;text-decoration:none;"> LED ON </button></center>
+<p></p> <br></br>
+<center><button href="#" id="led_off" style="color: #FF4500;font-size:55px;text-decoration:none;"> LED OFF </button></center>
 </div>
-
 <script>
 $( document ).ready(function(){
     $("#down").on("mousedown", function() {
@@ -32,14 +35,24 @@ $( document ).ready(function(){
      $.get('/stop');
     });
     $("#left").on("mousedown", function() {
-     $.get('/right');
+     $.get('/left');
      }).on('mouseup', function() {
      $.get('/stop');
     });
     $("#right").on("mousedown", function() {
-     $.get('/left');
+     $.get('/right');
      }).on('mouseup', function() {
      $.get('/stop');
+    });
+	$("#led_on").on("mousedown", function() {
+     $.get('/led_on');
+     }).on('mouseup', function() {
+     $.get('/nothing');
+    });
+	$("#led_off").on("mousedown", function() {
+     $.get('/led_off');
+     }).on('mouseup', function() {
+     $.get('/nothing');
     });
 });
 </script>
