@@ -1,7 +1,7 @@
 import RPi.GPIO as gpio
 from flask import Flask, render_template, request
 import time
-from gpiozero import LED, PWMOutputDevice, DistanceSensor
+from gpiozero import LED, PWMOutputDevice
 
 app = Flask(__name__)
 
