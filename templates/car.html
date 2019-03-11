@@ -44,17 +44,17 @@ $( document ).ready(function(){
     });
     $("#up").on("mouseover", function() {
      $.get('/forward');
-     }).on('mouseup', function() {
+     }).on('mouseout', function() {
      $.get('/stop');
     });
     $("#left").on("mouseover", function() {
      $.get('/right');
-     }).on('mouseup', function() {
+     }).on('mouseout', function() {
      $.get('/stop');
     });
     $("#right").on("mouseover", function() {
      $.get('/left');
-     }).on('mouseup', function() {
+     }).on('mouseout', function() {
      $.get('/stop');
     });
 	 $("#led_on").on("mousedown", function() {
