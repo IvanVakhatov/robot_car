@@ -27,6 +27,9 @@ forwardLeft = PWMOutputDevice(FORWARD_LEFT_PWM, True, 0, 1000)
 left_leds = LED(l_leds)
 right_leds = LED(r_leds)
 
+left_leds.on()
+right_leds.on()
+
 @app.route("/")
 def index():
     return render_template('car.html')
@@ -40,8 +43,8 @@ def forward():
     gpio.output(backwd_right, False)
     forwardRight.value = 1.0
     forwardLeft.value = 1.0
-    left_leds.on()
-    right_leds.on()
+    left_leds.off()
+    right_leds.off()
     return "True"
 
 @app.route('/backward')
@@ -53,8 +56,8 @@ def backward():
     gpio.output(backwd_right, True)
     forwardRight.value = 1.0
     forwardLeft.value = 1.0
-    left_leds.on()
-    right_leds.on()
+    left_leds.off()
+    right_leds.off()
     return "True"
 
 @app.route('/left')
@@ -66,8 +69,8 @@ def left():
     gpio.output(backwd_right, False)
     forwardLeft.value = 0.75
     forwardRight.value = 0
-    left_leds.on()
-    right_leds.off()
+    left_leds.off()
+    right_leds.on()
     return "True"
 
 @app.route('/right')
@@ -79,8 +82,8 @@ def right():
     gpio.output(backwd_right, False)
     forwardRight.value = 0.65
     forwardLeft.value = 0    
-    left_leds.off()
-    right_leds.on()
+    left_leds.on()
+    right_leds.off()
     return "True"
 
 @app.route('/stop')
@@ -92,8 +95,8 @@ def stop():
     gpio.output(backwd_right, False)
     forwardRight.value = 0
     forwardLeft.value = 0
-    left_leds.off()
-    right_leds.off()
+    left_leds.on()
+    right_leds.on()
     return "True"
 
 if __name__ == "__main__":
