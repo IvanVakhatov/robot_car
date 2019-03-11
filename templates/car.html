@@ -1,32 +1,45 @@
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
+	<head>
+		<title> ROBOT CAR </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
 <body>
 
-<img src="http://192.168.0.59:8081" /> <!--Enter the IP Address of your Raspberry Pi-->
-<div style="float:right">
+<div style=" height:40%; width: 40%; float:right;">
+
+<center>
+	<p style="color:#FF6347;font-weight:bold;font-size:30px;"> Raspberry pi Robot </p>
+	<button href="#" id="up" style="font-size:37px;text-decoration:none;font-weight:bold;border-radius:9px;padding:12px;">  	&#9650;<br>Вперёд</button><br><br>
+</center>
+<br></br>
+
+<button href="#" id="left" style="font-size:37px;text-decoration:none;float:left;font-weight:bold;border-radius:9px;padding:12px;"> &#9668;Налево</button>
+
+<button href="#" id="right" style="font-size:37px; text-decoration:none;float:right;font-weight:bold;border-radius:9px;padding:12px;"> Направо 	&#9658;</button><br></br>
+<br></br>
+<br></br>
+
+<center>
+	<button href="#" id="down" style="font-size:37px;text-decoration:none;font-weight:bold;border-radius:9px;padding:12px;"> Назад <br> &#9660 </br></button>
+</center>
+<br></br>
+
+<center>
+	<button href="#" id="led_on" style="font-size:40px;text-decoration:none;color:#FF6347;font-weight:bolder;border-radius:9px;padding:20px;"> Включить фонари </button>
+</center>
+<br></br>
+
+<center>
+	<button href="#" id="led_off" style="font-size:40px;text-decoration:none;color:#0000CD;font-weight:bolder;border-radius:9px;padding:20px;"> Выключить фонари </button>
+</center>
 
 </div>
-<div style=" height:40%; width: 40%; float:right;">
-<center>
-<h1><span style="color:#5C5C5C;">Raspberry pi</span><span style="color:#139442"> Robot</span></h1>
-<a href="#" id="up" style="font-size:30px;text-decoration:none;">  	&#9650;<br>Вперёд</a><br><br></center>
-<p></p> <br></br>
-<button href="#" id="left" style="font-size:30px;text-decoration:none;float:left;"> &#9668;Налево</button>
-<a href="#" id="right" style="font-size:30px; text-decoration:none;float:right;"> Направо 	&#9658;</a><br></br>
-<p></p> <br></br>
-<center><a href="#" id="down" style="font-size:30px;text-decoration:none;"> Backward<br> &#9660 </br></a></center>
-<p></p> <br></br>
-<center><button href="#" id="led_on" style="color: #FF4500;font-size:50px;text-decoration:none;"> LED ON </button></center>
-<p></p> <br></br>
-<center><button href="#" id="led_off" style="color: #FF4500;font-size:55px;text-decoration:none;"> LED OFF </button></center>
-</div>
+
 <script>
 $( document ).ready(function(){
-    $("#down").on("mousedown", function() {
+    $("#down").on("mouseover", function() {
      $.get('/backward');
-     }).on('mouseup', function() {
+     }).on('mouseout', function() {
      $.get('/stop');
     });
     $("#up").on("mousedown", function() {
@@ -35,24 +48,14 @@ $( document ).ready(function(){
      $.get('/stop');
     });
     $("#left").on("mousedown", function() {
-     $.get('/left');
-     }).on('mouseup', function() {
-     $.get('/stop');
-    });
-    $("#right").on("mousedown", function() {
      $.get('/right');
      }).on('mouseup', function() {
      $.get('/stop');
     });
-	$("#led_on").on("mousedown", function() {
-     $.get('/led_on');
+    $("#right").on("mousedown", function() {
+     $.get('/left');
      }).on('mouseup', function() {
-     $.get('/nothing');
-    });
-	$("#led_off").on("mousedown", function() {
-     $.get('/led_off');
-     }).on('mouseup', function() {
-     $.get('/nothing');
+     $.get('/stop');
     });
 });
 </script>
