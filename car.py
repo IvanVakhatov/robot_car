@@ -99,6 +99,20 @@ def stop():
     right_leds.on()
     return "True"
 
+@app.route('/led_on')
+def led_on():
+    data1="LED_ON"
+    left_leds.off()
+    right_leds.off()
+    return "True"
+
+@app.route('/led_off')
+def led_off():
+    data1="LED_OFF"
+    left_leds.on()
+    right_leds.on()
+    return "True"
+
 if __name__ == "__main__":
     print("Start")
     app.run(host='192.168.0.59', port=5010)
