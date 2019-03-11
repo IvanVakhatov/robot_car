@@ -42,20 +42,26 @@ $( document ).ready(function(){
      }).on('mouseout', function() {
      $.get('/stop');
     });
-    $("#up").on("mousedown", function() {
+    $("#up").on("mouseover", function() {
      $.get('/forward');
      }).on('mouseup', function() {
      $.get('/stop');
     });
-    $("#left").on("mousedown", function() {
+    $("#left").on("mouseover", function() {
      $.get('/right');
      }).on('mouseup', function() {
      $.get('/stop');
     });
-    $("#right").on("mousedown", function() {
+    $("#right").on("mouseover", function() {
      $.get('/left');
      }).on('mouseup', function() {
      $.get('/stop');
+    });
+	 $("#led_on").on("mousedown", function() {
+     $.get('/led_on');
+    });
+	$("#led_off").on("mousedown", function() {
+     $.get('/led_off');
     });
 });
 </script>
