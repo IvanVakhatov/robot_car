@@ -5,12 +5,12 @@ from gpiozero import LED, PWMOutputDevice
 
 app = Flask(__name__)
 
-FORWARD_RIGHT_PWM = 10
-FORWARD_LEFT_PWM = 4
-fwd_left = 17
-backwd_left = 27
-fwd_right = 22
-backwd_right = 9
+FORWARD_RIGHT_PWM = 4
+FORWARD_LEFT_PWM = 9
+fwd_left = 10
+backwd_left = 22
+fwd_right = 27
+backwd_right = 17
 l_leds = 5
 r_leds = 6
 
